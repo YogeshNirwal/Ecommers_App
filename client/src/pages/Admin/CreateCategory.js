@@ -17,7 +17,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${window.location.origin}/api/v1/category/create-category `,
+        `http://127.0.0.1:8080/api/v1/category/create-category `,
         { name }
       );
       if (data.success) {
@@ -36,7 +36,7 @@ const CreateCategory = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        `${window.location.origin}/api/v1/category/get-categor `
+        `http://127.0.0.1:8080/api/v1/category/get-categor `
       );
       if (data)
         if (data?.success) {
@@ -57,7 +57,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `${window.location.origin}/api/v1/category/update-category/${selected._id}`,
+        `http://127.0.0.1:8080/api/v1/category/update-category/${selected._id}`,
         { name: updatedName }
       );
       if (data.success) {
@@ -76,7 +76,7 @@ const CreateCategory = () => {
   const handleDelete = async (pid, deleteName) => {
     try {
       const { data } = await axios.delete(
-        `${window.location.origin}/api/v1/category/delete-category/${pid}`
+        `http://127.0.0.1:8080/api/v1/category/delete-category/${pid}`
       );
       if (data.success) {
         toast.success(`${deleteName} is updated`);

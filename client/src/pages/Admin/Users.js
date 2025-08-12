@@ -15,7 +15,7 @@ const Users = () => {
   const getAllUser = async () => {
     try {
       const { data } = await axios.get(
-        `${window.location.origin}/api/v1/auth/all-user`
+        `http://127.0.0.1:8080/api/v1/auth/all-user`
       );
       setOrders(data);
     } catch (error) {
@@ -30,7 +30,7 @@ const Users = () => {
   const handleChange = async (userID, value) => {
     try {
       const { data } = await axios.put(
-        `${window.location.origin}/api/v1/auth/user-roll/${userID}`,
+        `http://127.0.0.1:8080/api/v1/auth/user-roll/${userID}`,
         {
           role: value,
         }

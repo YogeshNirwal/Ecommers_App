@@ -22,7 +22,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        `${window.location.origin}/api/v1/category/get-category`
+        `http://127.0.0.1:8080/api/v1/category/get-category`
       );
       if (data)
         if (data?.success) {
@@ -46,6 +46,7 @@ const HomePage = () => {
       );
       setLoading(false);
       setProducts(data.products);
+      console.log(products);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -56,7 +57,7 @@ const HomePage = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        `${window.location.origin}/api/v1/product/product-count`
+        `http://127.0.0.1:8080/api/v1/product/product-count`
       );
       setTotal(data?.total);
     } catch (error) {
@@ -104,7 +105,7 @@ const HomePage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        `${window.location.origin}/api/v1/product/product-filters`,
+        `http://127.0.0.1:8080/api/v1/product/product-filters`,
         {
           checked,
           radio,
